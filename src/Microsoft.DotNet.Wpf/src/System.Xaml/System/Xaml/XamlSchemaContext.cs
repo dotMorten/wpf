@@ -21,6 +21,7 @@ using System.Xaml.MS.Impl;
 using System.Collections.ObjectModel;
 using System.Security;
 using MS.Internal.Xaml.Parser;
+using System.Linq;
 
 namespace System.Xaml
 {
@@ -967,6 +968,23 @@ namespace System.Xaml
             if (NamespaceByUriList.TryGetValue(xmlns, out xamlNamespace))
             {
                 return xamlNamespace;
+            }
+
+            if (xmlns.StartsWith("using:"))
+            {
+                var ns = xmlns.Substring(6);
+                foreach(var a in AppDomain.CurrentDomain.GetAssemblies())
+                {
+                    if (a.ExportedTypes.Where(t => t.GetTypeInfo().Namespace == ns).Any())
+                    {
+                        if(xamlNamespace == null)
+                            xamlNamespace = new XamlNamespace(this);
+                        xamlNamespace.AddAssemblyNamespacePair(new AssemblyNamespacePair(a, ns));
+                        continue;
+                    }
+                }
+                if (xamlNamespace != null)
+                    return xamlNamespace;
             }
 
             string clrNs, assemblyName;
