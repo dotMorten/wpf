@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using MS.Internal;  // ObservableCollectionDefaultValueFactory
 using System.Security;
+using System.Configuration;
 
 namespace System.Windows
 {
@@ -42,6 +43,11 @@ namespace System.Windows
             }
 
             IList<VisualStateGroup> groups = VisualStateManager.GetVisualStateGroupsInternal(stateGroupsRoot);
+            if(groups == null)
+            {
+                groups = VisualStateManager.GetVisualStateGroupsInternal(control);
+                stateGroupsRoot = control;
+            }
             if (groups == null)
             {
                 return false;
@@ -243,6 +249,14 @@ namespace System.Windows
             // consist of everything that is being moved back to the default state.
             // If the transition.Duration and explicit storyboard duration is zero, then we want both the dynamic 
             // and state Storyboards to happen in the same tick, so we start them at the same time.
+
+            if (state.Setters.Count > 0)
+            {
+                // TODO: Don't raise later if raised here
+                // group.RaiseCurrentStateChanging(stateGroupsRoot, lastState, state, control);
+                group.ProcessSettersCollection(state.Setters);
+                // group.RaiseCurrentStateChanged(stateGroupsRoot, lastState, state, control); // TODO: Raise later
+            }
             if (transition == null || (transition.GeneratedDuration == DurationZero &&
                                             (transition.Storyboard == null || transition.Storyboard.Duration == DurationZero)))
             {
@@ -315,7 +329,6 @@ namespace System.Windows
 
                 group.RaiseCurrentStateChanging(stateGroupsRoot, lastState, state, control);
             }
-
             group.CurrentState = state;
 
             return true;

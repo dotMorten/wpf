@@ -98,6 +98,108 @@ namespace System.Windows
             }
         }
 
+        // This will transfer information in the _setters collection to PropertyValues array.
+        internal void ProcessSettersCollection(SetterBaseCollection setters)
+        {
+            // Add information in Setters collection to PropertyValues array.
+            if (setters != null)
+            {
+                // Seal Setters
+                setters.Seal();
+
+                for (int i = 0; i < setters.Count; i++)
+                {
+                    Setter setter = setters[i] as Setter;
+                    if (setter != null)
+                    {
+                        DependencyProperty dp = setter.Property;
+                        object value = setter.ValueInternal;
+                        string target = setter.TargetName;
+
+                        if (target == null)
+                        {
+                            ProcessParametersContainer(dp);
+
+                            target = StyleHelper.SelfName;
+                        }
+                        else
+                        {
+                            target = ProcessParametersVisualTreeChild(dp, target); // name string will get interned
+                        }
+
+                        DynamicResourceExtension dynamicResource = value as DynamicResourceExtension;
+                        if (dynamicResource == null)
+                        {
+                            AddToPropertyValues(target, dp, value, PropertyValueType.Trigger);
+                        }
+                        else
+                        {
+                            AddToPropertyValues(target, dp, dynamicResource.ResourceKey, PropertyValueType.PropertyTriggerResource);
+                        }
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException(SR.Get(SRID.VisualTriggerSettersIncludeUnsupportedSetterType, setters[i].GetType().Name));
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        ///     Parameter validation work common to the SetXXXX methods that deal
+        /// with visual tree child nodes.
+        /// </summary>
+        internal string ProcessParametersVisualTreeChild(DependencyProperty dp, string target)
+        {
+            if (target == null)
+            {
+                throw new ArgumentNullException("target");
+            }
+
+            if (target.Length == 0)
+            {
+                throw new ArgumentException(SR.Get(SRID.ChildNameMustBeNonEmpty));
+            }
+
+            return String.Intern(target);
+        }
+
+        /// <summary>
+        ///     After the parameters have been validated, store it in the
+        /// PropertyValues collection.
+        /// </summary>
+        /// <remarks>
+        ///     All these will be looked at again (and processed into runtime
+        /// data structures) by Style.Seal(). We keep them around even after
+        /// that point should we need to serialize this data back out.
+        /// </remarks>
+        internal void AddToPropertyValues(string childName, DependencyProperty dp, object value, PropertyValueType valueType)
+        {
+            // Store original data
+            PropertyValue propertyValue = new PropertyValue();
+            propertyValue.ValueType = valueType;
+            propertyValue.Conditions = null;  // Delayed - derived class is responsible for this item.
+            propertyValue.ChildName = childName;
+            propertyValue.Property = dp;
+            propertyValue.ValueInternal = value;
+
+            PropertyValues.Add(propertyValue);
+        }
+        /* property */
+        internal MS.Utility.FrugalStructList<System.Windows.PropertyValue> PropertyValues = new MS.Utility.FrugalStructList<System.Windows.PropertyValue>();
+
+        /// <summary>
+        ///     Parameter validation work common to the SetXXXX methods that deal
+        /// with the container node of the Style/Template.
+        /// </summary>
+        internal void ProcessParametersContainer(DependencyProperty dp)
+        {
+            // Not allowed to use Style to affect the StyleProperty.
+            if (dp == FrameworkElement.StyleProperty)
+            {
+                throw new ArgumentException(SR.Get(SRID.StylePropertyInStyleNotAllowed));
+            }
+        }
         internal void StartNewThenStopOld(FrameworkElement element, params Storyboard[] newStoryboards)
         {
             // Remove the old Storyboards. Remove is delayed until the next TimeManager tick, so the

@@ -1323,6 +1323,9 @@
     <Compile Include="System\Windows\Standard\Utilities.cs" />
     <Compile Include="System\Windows\Standard\Verify.cs" />
     <Compile Include="System\Windows\StartupEventArgs.cs" />
+    <Compile Include="System\Windows\StateTrigger.cs" />
+    <Compile Include="System\Windows\StateTriggerBase.cs" />
+    <Compile Include="System\Windows\StateTriggerBaseCollection.cs" />
     <Compile Include="System\Windows\StaticResourceExtension.cs" />
     <Compile Include="System\Windows\Style.cs" />
     <Compile Include="System\Windows\StyleHelper.cs" />

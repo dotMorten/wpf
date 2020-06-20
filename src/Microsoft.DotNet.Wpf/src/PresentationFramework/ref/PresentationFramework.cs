@@ -149,7 +149,7 @@ namespace System.Windows
         bool System.Windows.Markup.IQueryAmbient.IsAmbientPropertyAvailable(string propertyName) { throw null; }
         public object TryFindResource(object resourceKey) { throw null; }
     }
-    [System.AttributeUsageAttribute(System.AttributeTargets.Method, AllowMultiple=false)]
+    [System.AttributeUsageAttribute(System.AttributeTargets.Method, AllowMultiple = false)]
     public sealed partial class AttachedPropertyBrowsableForChildrenAttribute : System.Windows.AttachedPropertyBrowsableAttribute
     {
         public AttachedPropertyBrowsableForChildrenAttribute() { }
@@ -270,19 +270,19 @@ namespace System.Windows
     }
     public partial class DataTemplateKey : System.Windows.TemplateKey
     {
-        public DataTemplateKey() : base (default(System.Windows.TemplateKey.TemplateType)) { }
-        public DataTemplateKey(object dataType) : base (default(System.Windows.TemplateKey.TemplateType)) { }
+        public DataTemplateKey() : base(default(System.Windows.TemplateKey.TemplateType)) { }
+        public DataTemplateKey(object dataType) : base(default(System.Windows.TemplateKey.TemplateType)) { }
     }
     [System.Windows.Markup.ContentPropertyAttribute("Setters")]
     [System.Windows.Markup.XamlSetMarkupExtensionAttribute("ReceiveMarkupExtension")]
     public partial class DataTrigger : System.Windows.TriggerBase, System.Windows.Markup.IAddChild
     {
         public DataTrigger() { }
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         public System.Windows.Data.BindingBase Binding { get { throw null; } set { } }
         [System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Content)]
         public System.Windows.SetterBaseCollection Setters { get { throw null; } }
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         [System.Windows.Markup.DependsOnAttribute("Binding")]
         public object Value { get { throw null; } set { } }
         public static void ReceiveMarkupExtension(object targetObject, System.Windows.Markup.XamlSetMarkupExtensionEventArgs eventArgs) { }
@@ -441,7 +441,7 @@ namespace System.Windows
     [System.Windows.Markup.RuntimeNamePropertyAttribute("Name")]
     [System.Windows.Markup.UsableDuringInitializationAttribute(true)]
     [System.Windows.Markup.XmlLangPropertyAttribute("Language")]
-    [System.Windows.StyleTypedPropertyAttribute(Property="FocusVisualStyle", StyleTargetType=typeof(System.Windows.Controls.Control))]
+    [System.Windows.StyleTypedPropertyAttribute(Property = "FocusVisualStyle", StyleTargetType = typeof(System.Windows.Controls.Control))]
     public partial class FrameworkContentElement : System.Windows.ContentElement, System.ComponentModel.ISupportInitialize, System.Windows.IFrameworkInputElement, System.Windows.IInputElement, System.Windows.Markup.IQueryAmbient
     {
         public static readonly System.Windows.DependencyProperty BindingGroupProperty;
@@ -544,7 +544,7 @@ namespace System.Windows
     [System.Windows.Markup.RuntimeNamePropertyAttribute("Name")]
     [System.Windows.Markup.UsableDuringInitializationAttribute(true)]
     [System.Windows.Markup.XmlLangPropertyAttribute("Language")]
-    [System.Windows.StyleTypedPropertyAttribute(Property="FocusVisualStyle", StyleTargetType=typeof(System.Windows.Controls.Control))]
+    [System.Windows.StyleTypedPropertyAttribute(Property = "FocusVisualStyle", StyleTargetType = typeof(System.Windows.Controls.Control))]
     public partial class FrameworkElement : System.Windows.UIElement, System.ComponentModel.ISupportInitialize, System.Windows.IFrameworkInputElement, System.Windows.IInputElement, System.Windows.Markup.IQueryAmbient
     {
         public static readonly System.Windows.DependencyProperty ActualHeightProperty;
@@ -600,7 +600,7 @@ namespace System.Windows
         public System.Windows.Style FocusVisualStyle { get { throw null; } set { } }
         public bool ForceCursor { get { throw null; } set { } }
         [System.ComponentModel.TypeConverterAttribute(typeof(System.Windows.LengthConverter))]
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         public double Height { get { throw null; } set { } }
         public System.Windows.HorizontalAlignment HorizontalAlignment { get { throw null; } set { } }
         protected internal System.Windows.InheritanceBehavior InheritanceBehavior { get { throw null; } set { } }
@@ -613,16 +613,16 @@ namespace System.Windows
         protected internal virtual System.Collections.IEnumerator LogicalChildren { get { throw null; } }
         public System.Windows.Thickness Margin { get { throw null; } set { } }
         [System.ComponentModel.TypeConverterAttribute(typeof(System.Windows.LengthConverter))]
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         public double MaxHeight { get { throw null; } set { } }
         [System.ComponentModel.TypeConverterAttribute(typeof(System.Windows.LengthConverter))]
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         public double MaxWidth { get { throw null; } set { } }
         [System.ComponentModel.TypeConverterAttribute(typeof(System.Windows.LengthConverter))]
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         public double MinHeight { get { throw null; } set { } }
         [System.ComponentModel.TypeConverterAttribute(typeof(System.Windows.LengthConverter))]
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         public double MinWidth { get { throw null; } set { } }
         [System.ComponentModel.MergablePropertyAttribute(false)]
         [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.NeverLocalize)]
@@ -646,7 +646,7 @@ namespace System.Windows
         public System.Windows.VerticalAlignment VerticalAlignment { get { throw null; } set { } }
         protected override int VisualChildrenCount { get { throw null; } }
         [System.ComponentModel.TypeConverterAttribute(typeof(System.Windows.LengthConverter))]
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         public double Width { get { throw null; } set { } }
         public event System.Windows.Controls.ContextMenuEventHandler ContextMenuClosing { add { } remove { } }
         public event System.Windows.Controls.ContextMenuEventHandler ContextMenuOpening { add { } remove { } }
@@ -852,7 +852,7 @@ namespace System.Windows
         public System.Windows.DataTemplate ItemTemplate { get { throw null; } set { } }
         public System.Windows.Controls.DataTemplateSelector ItemTemplateSelector { get { throw null; } set { } }
     }
-    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
     public enum HorizontalAlignment
     {
         Left = 0,
@@ -1000,7 +1000,7 @@ namespace System.Windows
     }
     public partial class NullableBoolConverter : System.ComponentModel.NullableConverter
     {
-        public NullableBoolConverter() : base (default(System.Type)) { }
+        public NullableBoolConverter() : base(default(System.Type)) { }
         public override System.ComponentModel.TypeConverter.StandardValuesCollection GetStandardValues(System.ComponentModel.ITypeDescriptorContext context) { throw null; }
         public override bool GetStandardValuesExclusive(System.ComponentModel.ITypeDescriptorContext context) { throw null; }
         public override bool GetStandardValuesSupported(System.ComponentModel.ITypeDescriptorContext context) { throw null; }
@@ -1040,7 +1040,7 @@ namespace System.Windows
         protected override void InvokeEventHandler(System.Delegate genericHandler, object genericTarget) { }
     }
     public delegate void RequestBringIntoViewEventHandler(object sender, System.Windows.RequestBringIntoViewEventArgs e);
-    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
     public enum ResizeMode
     {
         NoResize = 0,
@@ -1129,14 +1129,14 @@ namespace System.Windows
         public Setter(System.Windows.DependencyProperty property, object value) { }
         public Setter(System.Windows.DependencyProperty property, object value, string targetName) { }
         [System.ComponentModel.DefaultValueAttribute(null)]
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Modifiability=System.Windows.Modifiability.Unmodifiable, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Modifiability = System.Windows.Modifiability.Unmodifiable, Readability = System.Windows.Readability.Unreadable)]
         [System.Windows.Markup.AmbientAttribute]
         public System.Windows.DependencyProperty Property { get { throw null; } set { } }
         [System.ComponentModel.DefaultValueAttribute(null)]
         [System.Windows.Markup.AmbientAttribute]
         public string TargetName { get { throw null; } set { } }
         [System.ComponentModel.TypeConverterAttribute(typeof(System.Windows.Markup.SetterTriggerConditionValueConverter))]
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         [System.Windows.Markup.DependsOnAttribute("Property")]
         [System.Windows.Markup.DependsOnAttribute("TargetName")]
         public object Value { get { throw null; } set { } }
@@ -1223,7 +1223,7 @@ namespace System.Windows
         bool System.Windows.Markup.IQueryAmbient.IsAmbientPropertyAvailable(string propertyName) { throw null; }
         public void UnregisterName(string name) { }
     }
-    [System.AttributeUsageAttribute(System.AttributeTargets.Class, AllowMultiple=true)]
+    [System.AttributeUsageAttribute(System.AttributeTargets.Class, AllowMultiple = true)]
     public sealed partial class StyleTypedPropertyAttribute : System.Attribute
     {
         public StyleTypedPropertyAttribute() { }
@@ -1749,14 +1749,14 @@ namespace System.Windows
             TableTemplate = 1,
         }
     }
-    [System.AttributeUsageAttribute(System.AttributeTargets.Class, AllowMultiple=true)]
+    [System.AttributeUsageAttribute(System.AttributeTargets.Class, AllowMultiple = true)]
     public sealed partial class TemplatePartAttribute : System.Attribute
     {
         public TemplatePartAttribute() { }
         public string Name { get { throw null; } set { } }
         public System.Type Type { get { throw null; } set { } }
     }
-    [System.AttributeUsageAttribute(System.AttributeTargets.Class, AllowMultiple=true)]
+    [System.AttributeUsageAttribute(System.AttributeTargets.Class, AllowMultiple = true)]
     public sealed partial class TemplateVisualStateAttribute : System.Attribute
     {
         public TemplateVisualStateAttribute() { }
@@ -1779,7 +1779,7 @@ namespace System.Windows
         public System.Windows.ResourceDictionaryLocation ThemeDictionaryLocation { get { throw null; } }
     }
     [System.ComponentModel.TypeConverterAttribute(typeof(System.Windows.ThicknessConverter))]
-    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
     public partial struct Thickness : System.IEquatable<System.Windows.Thickness>
     {
         public Thickness(double uniformLength) { throw null; }
@@ -1808,7 +1808,7 @@ namespace System.Windows
     public partial class Trigger : System.Windows.TriggerBase, System.ComponentModel.ISupportInitialize, System.Windows.Markup.IAddChild
     {
         public Trigger() { }
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Modifiability=System.Windows.Modifiability.Unmodifiable, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Modifiability = System.Windows.Modifiability.Unmodifiable, Readability = System.Windows.Readability.Unreadable)]
         [System.Windows.Markup.AmbientAttribute]
         public System.Windows.DependencyProperty Property { get { throw null; } set { } }
         [System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Content)]
@@ -1817,7 +1817,7 @@ namespace System.Windows
         [System.Windows.Markup.AmbientAttribute]
         public string SourceName { get { throw null; } set { } }
         [System.ComponentModel.TypeConverterAttribute(typeof(System.Windows.Markup.SetterTriggerConditionValueConverter))]
-        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+        [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
         [System.Windows.Markup.DependsOnAttribute("Property")]
         [System.Windows.Markup.DependsOnAttribute("SourceName")]
         public object Value { get { throw null; } set { } }
@@ -1860,7 +1860,7 @@ namespace System.Windows
         void System.Collections.IList.Insert(int index, object value) { }
         void System.Collections.IList.Remove(object value) { }
     }
-    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
     public abstract partial class TriggerBase : System.Windows.DependencyObject
     {
         internal TriggerBase() { }
@@ -1869,7 +1869,7 @@ namespace System.Windows
         [System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Content)]
         public System.Windows.TriggerActionCollection ExitActions { get { throw null; } }
     }
-    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
     public sealed partial class TriggerCollection : System.Collections.ObjectModel.Collection<System.Windows.TriggerBase>
     {
         internal TriggerCollection() { }
@@ -1891,7 +1891,7 @@ namespace System.Windows
         public static bool operator ==(System.Windows.ValueSource vs1, System.Windows.ValueSource vs2) { throw null; }
         public static bool operator !=(System.Windows.ValueSource vs1, System.Windows.ValueSource vs2) { throw null; }
     }
-    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability=System.Windows.Readability.Unreadable)]
+    [System.Windows.LocalizabilityAttribute(System.Windows.LocalizationCategory.None, Readability = System.Windows.Readability.Unreadable)]
     public enum VerticalAlignment
     {
         Top = 0,
@@ -1901,11 +1901,26 @@ namespace System.Windows
     }
     [System.Windows.Markup.ContentPropertyAttribute("Storyboard")]
     [System.Windows.Markup.RuntimeNamePropertyAttribute("Name")]
-    public partial class VisualState : System.Windows.DependencyObject
+    public partial class VisualState : System.Windows.DependencyObject, System.Windows.Markup.IAddChild
     {
         public VisualState() { }
         public string Name { get { throw null; } set { } }
         public System.Windows.Media.Animation.Storyboard Storyboard { get { throw null; } set { } }
+        public SetterBaseCollection Setters { get { throw null; } }
+        public System.Collections.Generic.IList<StateTriggerBase> StateTriggers { get { throw null; } }
+        void System.Windows.Markup.IAddChild.AddChild(object value) { }
+        void System.Windows.Markup.IAddChild.AddText(string text) { }
+    }
+    public partial class StateTriggerBase : System.Windows.DependencyObject
+    {
+        protected StateTriggerBase() { }
+        protected void SetActive(bool IsActive) { throw null; }
+    }
+    public sealed partial class StateTrigger : StateTriggerBase
+    {
+        public StateTrigger() { }
+        public bool IsActive { get { throw null; } set { } }
+        public static readonly DependencyProperty IsActiveProperty;
     }
     public sealed partial class VisualStateChangedEventArgs : System.EventArgs
     {

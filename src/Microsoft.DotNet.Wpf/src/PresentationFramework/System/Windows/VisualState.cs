@@ -14,7 +14,7 @@ namespace System.Windows
     /// </summary>
     [ContentProperty("Storyboard")]
     [RuntimeNameProperty("Name")]
-    public class VisualState : DependencyObject
+    public class VisualState : DependencyObject, System.Windows.Markup.IAddChild
     {
         /// <summary>
         ///     The name of the VisualState.
@@ -24,6 +24,19 @@ namespace System.Windows
             get;
             set;
         }
+		
+        /// <summary>
+        ///     The name of the VisualState.
+        /// </summary>
+        public SetterBaseCollection Setters
+        {
+            get;
+        } = new SetterBaseCollection();
+		
+		public System.Collections.Generic.IList<StateTriggerBase> StateTriggers 
+		{
+			get; 
+		} = new StateTriggerBaseCollection();
 
         private static readonly DependencyProperty StoryboardProperty = 
             DependencyProperty.Register(
@@ -38,6 +51,27 @@ namespace System.Windows
         {
             get { return (Storyboard)GetValue(StoryboardProperty); }
             set { SetValue(StoryboardProperty, value); }
+        }
+
+        void System.Windows.Markup.IAddChild.AddChild(object child)
+        {
+            if (child == null)
+            {
+                throw new ArgumentNullException("child");
+            }
+
+            if (child is StateTriggerBase trigger)
+            {
+                StateTriggers.Add(trigger);
+            }
+            else
+            {
+                throw new ArgumentException(SR.Get(SRID.Animation_ChildMustBeKeyFrame), "child"); // TODO: Fix string
+            }
+        }
+        void System.Windows.Markup.IAddChild.AddText(string text)
+        {
+            throw new InvalidOperationException(SR.Get(SRID.Animation_NoTextChildren)); // TODO: Fix string
         }
     }
 }
