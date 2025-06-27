@@ -20,6 +20,7 @@
   <ItemGroup>
     <Compile Include="$(WpfCommonDir)\src\System\LocalAppContext.cs" />
     <Compile Include="$(WpfCommonDir)\src\System\AppContextDefaultValues.cs" />
+    <Compile Include="MS\Internal\Automation\TransformProvider2Wrapper.cs" />
     <Compile Include="System\AppContextDefaultValues.cs" />
   </ItemGroup>
   <ItemGroup>
